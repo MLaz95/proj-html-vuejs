@@ -1,4 +1,5 @@
 @import 'node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+// font awesome
 
 *{
   margin: 0;
@@ -6,3 +7,12 @@
   box-sizing: border-box;
 }
 // reset
+
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section h2{
+  font-size: 2.5rem;
+}
