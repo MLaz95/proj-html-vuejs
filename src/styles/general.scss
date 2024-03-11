@@ -14,8 +14,24 @@
   margin: 0 auto;
 }
 
+.row{
+  display: flex;
+}
+
+.col-6{
+  width: calc(100% / 2);
+}
+
+.col-3{
+  width: calc(100% / 4);
+}
+
 section h2{
   font-size: 2.5rem;
+}
+
+.img-fluid{
+  width: 100%;
 }
 
 .btn-top{

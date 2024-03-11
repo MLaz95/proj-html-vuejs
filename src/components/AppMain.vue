@@ -47,11 +47,11 @@
     
         <!-- second section w/ 2 column layout -->
         <section class="row">
-            <div class="col">
+            <div class="col-6">
                 <!-- img -->
-                <img src="/img/h5-img-2.jpg" alt="">
+                <img class="img-fluid" src="/img/h5-img-2.jpg" alt="">
             </div>
-            <div class="col text">
+            <div class="col-6 text">
                 <!-- text -->
                 <h2>Empowering Children to Reach Their Potential.</h2>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aperiam error quas sit hic sed? Odit, tempora itaque odio saepe, aliquid exercitationem esse numquam, recusandae officia enim possimus. Sint, doloribus.</p>
@@ -127,35 +127,23 @@
         }
     }
 
-    .row{
+    .text{
+        padding: 0 115px 0 60px ;
+        p{
+            margin: 1rem 0;
+        }   
+    }
+
+    .section-data{
         display: flex;
+        color: $bg-primary;
         
-
-        .col{
+        div{
             width: 50%;
-            img{
-                width: 100%;
-            }
-        }
+            font-weight: bold;
 
-        .text{
-            padding: 0 115px 0 60px ;
-            p{
-                margin: 1rem 0;
-            }   
-        }
-
-        .section-data{
-            display: flex;
-            color: $bg-primary;
-            
-            div{
-                width: 50%;
-                font-weight: bold;
-
-                strong{
-                    font-size: 3rem;
-                }
+            strong{
+                font-size: 3rem;
             }
         }
     }
