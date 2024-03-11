@@ -29,9 +29,9 @@
 
         <div class="button-group">
             <!-- buttons -->
-            <div>search</div>
-            <div>cart</div>
-            <div>menu</div>
+            <div><i class="fa-solid fa-magnifying-glass"></i></div>
+            <div><i class="fa-solid fa-bag-shopping"></i></div>
+            <div><i class="fa-solid fa-bars"></i></div>
         </div>
 
     </nav>
@@ -40,14 +40,15 @@
 
 <style lang="scss">
     nav{
-        background-color: pink;
-        height: 100px;
-        // test
+        background-color: transparent;
         width: 100%;
         padding: 2rem;
         display: flex;
         justify-content: space-between;
         align-items: stretch;
+        position: absolute;
+        top: 0;
+        left: 0;
 
         font-size: 1rem;
         color: white;
