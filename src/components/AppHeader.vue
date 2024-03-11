@@ -9,16 +9,22 @@
 
         data(){
             return{
-                activeSlide: 1,
+                activeSlide: 0,
+
+                sliderImages: [
+                    '/img/h5-slide-1-background.jpg',
+                    '/img/h5-slide-2-background.jpg',
+                    '/img/h5-slide-3-background.jpg',
+                ]
             }
         },
 
         methods:{
             nextSlide(){
-                if(this.activeSlide < 3){
+                if(this.activeSlide < 2){
                     this.activeSlide++;
                 }else{
-                    this.activeSlide = 1;
+                    this.activeSlide = 0;
                 }
             }
         },
@@ -35,9 +41,12 @@
 <template>
     <header>
         <NavBar></NavBar>
-        <img src="/img/h5-slide-1-background.jpg" alt="" v-show="activeSlide == 1">
-        <img src="/img/h5-slide-2-background.jpg" alt="" v-show="activeSlide == 2">
-        <img src="/img/h5-slide-3-background.jpg" alt="" v-show="activeSlide == 3">
+        <img
+            v-for="(img, index) in sliderImages"
+            :src="img"
+            alt=""
+            v-show="activeSlide == index">
+
         <div class="head-text">
             <h1>Contemporary Ideas</h1>
             <p>
@@ -46,9 +55,10 @@
             <button class="btn">Register Now</button>
         </div>
         <div class="slide-buttons">
-            <button class="slide-btn" :class="{active: activeSlide == 1}" @click="activeSlide = 1"></button>
-            <button class="slide-btn" :class="{active: activeSlide == 2}" @click="activeSlide = 2"></button>
-            <button class="slide-btn" :class="{active: activeSlide == 3}" @click="activeSlide = 3"></button>
+            <button class="slide-btn"
+                v-for="(img, index) in sliderImages"
+                :class="{active: activeSlide == index}"
+                @click="activeSlide = index"></button>
         </div>
     </header>
 

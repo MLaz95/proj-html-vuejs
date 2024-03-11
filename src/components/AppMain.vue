@@ -16,8 +16,14 @@
 
 <template>
 
-    <section class="container">
+    <div class="container">
+        <!-- side button that scrolls page back to top -->
+        <button class="btn-top">
+            <i class="fa-solid fa-chevron-up"></i>
+            <div>TOP</div>
+        </button>
 
+        <!-- card links populated with array -->
         <div class="card-links">
             <div v-for="(link, index) in cardLinks" class="card">
                 <img :src="`/img/h5-custom-icon-${index + 1}.png`" alt="">
@@ -25,51 +31,54 @@
             </div>
         </div>
         
-        <div class="section-text">
-            <h2>The Trusted Name<br> for In-Home Tutoring.</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium sed suscipit quo, rerum voluptatem deleniti harum nostrum ducimus voluptatum hic sit ipsa, quisquam veniam repellendus, non culpa odio ratione minus?</p>
-            <a href="!#">Learn More</a>
-        </div>
-
-        <div class="img-wrapper">
-            <img src="/img/h5-img-1.jpg" alt="">
-            <button class="btn-top">
-                <i class="fa-solid fa-chevron-up"></i>
-                <div>TOP</div>
-            </button>
-        </div>
-    </section>
-
-    <section class="split-section container">
-        <div>
-            <!-- img -->
-            <img src="/img/h5-img-2.jpg" alt="">
-        </div>
-        <div class="split-text">
-            <!-- text -->
-            <h2>Empowering Children to Reach Their Potential.</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aperiam error quas sit hic sed? Odit, tempora itaque odio saepe, aliquid exercitationem esse numquam, recusandae officia enim possimus. Sint, doloribus.</p>
-            <div class="section-data">
-                <div>
-                    <div><strong>168</strong></div>
-                    <div>User Stories</div>
-                </div>
-                <div>
-                    <div><strong>347</strong></div>
-                    <div>Events</div>
+        <section>
+            <!-- first section -->
+            <div class="section-text">
+                <h2>The Trusted Name<br> for In-Home Tutoring.</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium sed suscipit quo, rerum voluptatem deleniti harum nostrum ducimus voluptatum hic sit ipsa, quisquam veniam repellendus, non culpa odio ratione minus?</p>
+                <a href="!#">Learn More</a>
+            </div>
+    
+            <!-- bg img between sections -->
+            <div class="img-wrapper">
+                <img src="/img/h5-img-1.jpg" alt="">
+            </div>
+        </section>
+    
+        <!-- second section w/ 2 column layout -->
+        <section class="row">
+            <div class="col">
+                <!-- img -->
+                <img src="/img/h5-img-2.jpg" alt="">
+            </div>
+            <div class="col text">
+                <!-- text -->
+                <h2>Empowering Children to Reach Their Potential.</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aperiam error quas sit hic sed? Odit, tempora itaque odio saepe, aliquid exercitationem esse numquam, recusandae officia enim possimus. Sint, doloribus.</p>
+                <div class="section-data">
+                    <div>
+                        <div><strong>168</strong></div>
+                        <div>User Stories</div>
+                    </div>
+                    <div>
+                        <div><strong>347</strong></div>
+                        <div>Events</div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     
 
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use '../styles/variables.scss' as *;
 
     section{
+        padding: 50px 0 50px;
+
         .img-wrapper{
             max-width: 1100px;
 
@@ -82,9 +91,9 @@
     }
     .card-links{
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
 
-        margin: 60px 0 120px;
+        padding: 60px 0;
 
         .card{
             width: 140px;
@@ -118,17 +127,18 @@
         }
     }
 
-    .container.split-section{
+    .row{
         display: flex;
-        margin: 100px auto 50px;
-        div{
+        
+
+        .col{
             width: 50%;
             img{
                 width: 100%;
             }
         }
 
-        .split-text{
+        .text{
             padding: 0 115px 0 60px ;
             p{
                 margin: 1rem 0;
@@ -136,14 +146,12 @@
         }
 
         .section-data{
-            width: 100%;
             display: flex;
             color: $bg-primary;
             
             div{
                 width: 50%;
                 font-weight: bold;
-                
 
                 strong{
                     font-size: 3rem;
