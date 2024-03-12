@@ -1,11 +1,14 @@
 <script>
-    import TestimonialSlider from './TestimonialSlider.vue'
-    import BenefitTabs from './BenefitTabs.vue'
+    import TestimonialSlider from './TestimonialSlider.vue';
+    import BenefitTabs from './BenefitTabs.vue';
+    import CourseCarousel from './CourseCarousel.vue';
+
     export default{
         name: 'AppMain',
         components:{
             TestimonialSlider,
             BenefitTabs,
+            CourseCarousel,
         },
 
         data(){
@@ -75,12 +78,18 @@
             </div>
         </section>
     </div>
+
     <TestimonialSlider></TestimonialSlider>
 
-    <div class="container">
-        <BenefitTabs></BenefitTabs>
+    <BenefitTabs></BenefitTabs>
 
-    </div>
+    <section id="courses">
+        <h2>Popular Online Courses</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione alias, quaerat facilis consequuntur animi repellat ducimus omnis atque iusto! Quod eius voluptates adipisci voluptatem nesciunt facilis, quam cupiditate est quia.</p>
+        <CourseCarousel></CourseCarousel>
+    </section>
+
+
 
 
 
@@ -174,5 +183,13 @@
                 font-size: 3rem;
             }
         }
+    }
+
+    #courses{
+        padding: 120px 0;
+        border-top: 2px solid $border-secondary;
+        border-bottom: 2px solid $border-secondary;
+        text-align: center;
+        background-image: url(/img/page-background-img.png);
     }
 </style>

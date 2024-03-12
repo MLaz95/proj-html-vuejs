@@ -45,7 +45,7 @@
 </script>
 
 <template>
-    <div id="benefits">
+    <div id="benefits" class="container">
         <aside>
             <ul>
                 <li
@@ -73,9 +73,7 @@
     @use '../styles/variables.scss' as *;
 
     #benefits{
-        padding: 130px 0;
-        border-bottom: 1px solid;
-
+        padding: 120px 0;
         display: flex;
     
         aside{
