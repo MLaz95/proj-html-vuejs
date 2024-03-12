@@ -93,7 +93,7 @@
     }
 </script>
 <template>
-    <div id="course-carousel" class="container">
+    <div id="course-carousel">
         <!-- this carousel three slides, each slides contains three course-cards -->
         <div class="slide">
             <!-- only looks at the active slide -->
@@ -134,7 +134,7 @@
     @use '../styles/variables.scss' as *;
 
     #course-carousel{
-        padding: 100px 0;
+        padding-bottom: 100px;
         position: relative;
 
         .slide{

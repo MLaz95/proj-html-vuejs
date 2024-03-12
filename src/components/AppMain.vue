@@ -2,6 +2,7 @@
     import TestimonialSlider from './TestimonialSlider.vue';
     import BenefitTabs from './BenefitTabs.vue';
     import CourseCarousel from './CourseCarousel.vue';
+    import PricingChart from './PricingChart.vue';
 
     export default{
         name: 'AppMain',
@@ -9,6 +10,7 @@
             TestimonialSlider,
             BenefitTabs,
             CourseCarousel,
+            PricingChart,
         },
 
         data(){
@@ -84,9 +86,23 @@
     <BenefitTabs></BenefitTabs>
 
     <section id="courses">
-        <h2>Popular Online Courses</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione alias, quaerat facilis consequuntur animi repellat ducimus omnis atque iusto! Quod eius voluptates adipisci voluptatem nesciunt facilis, quam cupiditate est quia.</p>
-        <CourseCarousel></CourseCarousel>
+        <div class="container">
+            <div class="head">
+                <h2>Popular Online Courses</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione alias, quaerat facilis consequuntur animi repellat ducimus omnis atque iusto! Quod eius voluptates adipisci voluptatem nesciunt facilis, quam cupiditate est quia.</p>
+
+            </div>
+            <CourseCarousel></CourseCarousel>
+        </div>
+    </section>
+
+    <section id="pricing" class="container">
+        <div class="head">
+            <h2>Pricing Plans</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+        </div>
+        <PricingChart></PricingChart>
     </section>
 
 
@@ -124,8 +140,11 @@
             }
         }
 
-        
+        .head{
+            padding-bottom: 100px;
+        }
     }
+
     .card-links{
         display: flex;
         justify-content: space-between;
@@ -191,5 +210,9 @@
         border-bottom: 2px solid $border-secondary;
         text-align: center;
         background-image: url(/img/page-background-img.png);
+    }
+
+    #pricing{
+        text-align: center;
     }
 </style>
