@@ -58,7 +58,8 @@
             <button class="slide-btn"
                 v-for="(img, index) in sliderImages"
                 :class="{active: activeSlide == index}"
-                @click="activeSlide = index"></button>
+                @click="activeSlide = index">
+            </button>
         </div>
     </header>
 

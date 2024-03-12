@@ -1,13 +1,18 @@
 <script>
+    import TestimonialSlider from './TestimonialSlider.vue'
     export default{
         name: 'AppMain',
+        components:{
+            TestimonialSlider,
+        },
 
         data(){
-                return {
-                    // list of links below header
-                    cardLinks:['Languages', 'Software', 'Business', 'Chemistry', 'Science', 'DIY&Craft']
-                }
+            return {
+                // list of links below header
+                cardLinks:['Languages', 'Software', 'Business', 'Chemistry', 'Science', 'DIY&Craft']
             }
+        },
+
 
     }
 
@@ -68,6 +73,8 @@
             </div>
         </section>
     </div>
+    <TestimonialSlider></TestimonialSlider>
+
 
     
 
@@ -75,6 +82,17 @@
 
 <style lang="scss" scoped>
 @use '../styles/variables.scss' as *;
+
+    .btn-top{
+    position: fixed;
+    bottom: 150px;
+    right: 0;
+    padding: 1rem;
+    border: none;
+    font-weight: bold;
+    color: white;
+    background-color: $bg-primary;
+    }
 
     section{
         padding: 50px 0 50px;
