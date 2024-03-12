@@ -144,6 +144,7 @@
             .card{
                 border: 2px solid $border-primary;
                 width: calc(100% / 3 - 30px * 2 / 3);
+                background-color: white;
 
                 .card-info{
                     padding: 1rem;
@@ -199,8 +200,8 @@
                 padding: 2rem;
     
                 button{
-                    width: 16px;
-                    height: 16px;
+                    width: 12px;
+                    height: 12px;
     
                     border: none;
                     border-radius: 50%;
