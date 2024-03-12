@@ -34,20 +34,23 @@
 <template>
     <div id="testimonial-slider">
         <!-- content of the testimonial populated from data -->
-        <div
-            v-for="(obj, index) in testimonials"
-            v-show="activeSlide == index"
-            class="testimonial"
-        >
-            <div class="img-wrapper">
-                <img :src="obj.imgPath" alt=""> 
+        <TransitionGroup>
+            <div
+                key="slide"
+                v-for="(obj, index) in testimonials"
+                v-show="activeSlide == index"
+                class="testimonial"
+            >
+                <div class="img-wrapper">
+                    <img :src="obj.imgPath" alt=""> 
+                </div>
+                <p>"{{ obj.quote }}"</p>
+                <div>
+                    <h3>{{ obj.name }}</h3>
+                    <div><small>{{ obj.occupation.toUpperCase() }}</small></div>
+                </div>
             </div>
-            <p>"{{ obj.quote }}"</p>
-            <div>
-                <h3>{{ obj.name }}</h3>
-                <div><small>{{ obj.occupation.toUpperCase() }}</small></div>
-            </div>
-        </div>
+        </TransitionGroup>
 
         <!-- buttons to go throuh the slides -->
         <div class="slide-buttons">

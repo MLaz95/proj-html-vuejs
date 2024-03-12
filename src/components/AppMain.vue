@@ -1,9 +1,11 @@
 <script>
     import TestimonialSlider from './TestimonialSlider.vue'
+    import BenefitTabs from './BenefitTabs.vue'
     export default{
         name: 'AppMain',
         components:{
             TestimonialSlider,
+            BenefitTabs,
         },
 
         data(){
@@ -75,6 +77,12 @@
     </div>
     <TestimonialSlider></TestimonialSlider>
 
+    <div class="container">
+        <BenefitTabs></BenefitTabs>
+
+    </div>
+
+
 
     
 
@@ -87,6 +95,8 @@
     position: fixed;
     bottom: 150px;
     right: 0;
+    z-index: 10;
+
     padding: 1rem;
     border: none;
     font-weight: bold;
