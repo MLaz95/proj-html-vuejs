@@ -111,7 +111,9 @@
     </section>
 
     <section class="client-logos">
-        <img :src="client.imgPath" :alt="client.name" v-for="client in clientLogos">
+        <div class="container">
+            <img :src="client.imgPath" :alt="client.name" v-for="client in clientLogos">
+        </div>
     </section>
 
 </template>
@@ -212,6 +214,7 @@
         border-top: 1px solid $border-primary;
 
         img{
+            width: calc(100% / 4);
             padding: 40px 0;
         }
     }
