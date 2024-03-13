@@ -18,7 +18,13 @@
         data(){
             return {
                 // list of links below header
-                cardLinks:['Languages', 'Software', 'Business', 'Chemistry', 'Science', 'DIY&Craft']
+                cardLinks:['Languages', 'Software', 'Business', 'Chemistry', 'Science', 'DIY&Craft'],
+                clientLogos: [
+                    {name: 'iAcademy', imgPath:'/img/h5-client-1.png'},
+                    {name: 'Study Central University', imgPath:'/img/h5-client-2.png'},
+                    {name: 'Educator', imgPath:'/img/h5-client-3.png'},
+                    {name: 'Scholar University', imgPath:'/img/h5-client-4.png'}
+                ]
             }
         },
 
@@ -104,11 +110,9 @@
         <PricingChart></PricingChart>
     </section>
 
-
-
-
-
-    
+    <section class="client-logos">
+        <img :src="client.imgPath" :alt="client.name" v-for="client in clientLogos">
+    </section>
 
 </template>
 
@@ -200,5 +204,15 @@
 
     #pricing{
         text-align: center;
+    }
+
+    .client-logos{
+        display: flex;
+        justify-content: center;
+        border-top: 1px solid $border-primary;
+
+        img{
+            padding: 40px 0;
+        }
     }
 </style>
