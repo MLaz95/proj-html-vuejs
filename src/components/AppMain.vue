@@ -3,6 +3,7 @@
     import BenefitTabs from './BenefitTabs.vue';
     import CourseCarousel from './CourseCarousel.vue';
     import PricingChart from './PricingChart.vue';
+    import scrollToTopButton from './scrollToTopButton.vue';
 
     export default{
         name: 'AppMain',
@@ -11,6 +12,7 @@
             BenefitTabs,
             CourseCarousel,
             PricingChart,
+            scrollToTopButton,
         },
 
         data(){
@@ -30,10 +32,7 @@
 
     <div class="container">
         <!-- side button that scrolls page back to top -->
-        <button class="btn-top">
-            <i class="fa-solid fa-chevron-up"></i>
-            <div>TOP</div>
-        </button>
+        <scrollToTopButton></scrollToTopButton>
 
         <!-- card links populated with array -->
         <div class="card-links">
@@ -115,19 +114,6 @@
 
 <style lang="scss" scoped>
 @use '../styles/variables.scss' as *;
-
-    .btn-top{
-    position: fixed;
-    bottom: 150px;
-    right: 0;
-    z-index: 10;
-
-    padding: 1rem;
-    border: none;
-    font-weight: bold;
-    color: white;
-    background-color: $bg-primary;
-    }
 
     section{
         padding: 50px 0 50px;
