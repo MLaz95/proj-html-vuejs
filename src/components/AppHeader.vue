@@ -27,6 +27,7 @@
                 ],
 
                 activeSlide: 0,
+                autoplayId: '',
             }
         },
 
@@ -37,11 +38,21 @@
                 }else{
                     this.activeSlide = 0;
                 }
+            },
+
+            autoPlay(){
+                this.autoplayId = setInterval(this.nextSlide, 5000)
+                console.log('autoplay start')
+            },
+
+            stopAutoPlay(){
+                clearInterval(this.autoplayId)
+                console.log('autoplay stop')
             }
         },
 
         mounted(){
-            // setInterval(this.nextSlide, 3000)
+            this.autoPlay()
         }
 
 
@@ -54,7 +65,7 @@
         <NavBar></NavBar>
         <div class="head-view">
 
-            <div v-for="(slide,index) in headSlides" class="slide" :class="{active: activeSlide == index}">
+            <div v-for="(slide,index) in headSlides" class="slide" :class="{active: activeSlide == index}" @mouseover="stopAutoPlay()">
                 <img :src="slide.background" alt="">
         
                 <div class="head-text">
@@ -98,11 +109,11 @@
                 height: 100%;
     
                 &:not(.active){
-                    animation: head-fade-out 0.3s ease forwards;
+                    animation: head-fade-out 1s ease forwards;
                 }
                 
                 &.active{
-                    animation: head-fade-in 0.3s ease forwards;
+                    animation: head-fade-in 1s ease forwards;
                 }
                 img{
                     width: 100%;
