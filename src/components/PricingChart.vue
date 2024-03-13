@@ -73,7 +73,7 @@
         <!-- stub column, the stub info is taken from its own array -->
         <div class="col-3 plan stub">
             <div class="plan-head">
-                <h3>Save up to 40% by paying weekly</h3>
+                <h3><strong>Save up to 40% by paying weekly</strong></h3>
             </div>
             <div v-for="item in keyList" class="plan-cell">{{ item }}</div>
         </div>
@@ -97,7 +97,14 @@
             <div class="plan-cell btn">
                 <button :class="{active: activeColumn == index}" @click="activeColumn = index">Get it Now</button>
             </div>
-        </div>        
+        </div>
+        
+        <div class="side-buttons">
+            <!-- qode -->
+            <button><img src="/img/qode-icon.png" alt="qode"></button>
+            <!-- cart -->
+            <button><i class="fa-solid fa-cart-shopping"></i></button>
+        </div>
 
     </div>
 
@@ -109,6 +116,7 @@
     .price-chart{
         border-top: 5px solid $border-tertiary;
         padding-bottom: 100px;
+        position: relative;
     }
     .plan{
         display: flex;
@@ -134,12 +142,17 @@
             height: 260px;
             display: flex;
             flex-direction: column;
+            justify-content: end;
             align-items: center;
             gap: 1.5rem;
             padding: 45px;
             border: 1px solid $border-primary;
             
             background-color: $bg-fourth;
+
+            h3 strong{
+                font-size: 1.4rem;
+            }
         }
 
         .plan-cell{
@@ -171,6 +184,40 @@
                         color: white;
                     }
                 }
+            }
+        }
+    }
+
+    .side-buttons{
+        button{
+            cursor: pointer;
+            position: absolute;
+            left: 100%;
+            z-index: 99;
+
+            width: 42px;
+            height: 42px;
+            color: #EE2852;
+            background-color: white;
+            border: none;
+            box-shadow: 3px 0 10px rgba($color: #000000, $alpha: 0.2);
+            transition: width 0.3s;
+            
+            img{
+                width: 42px;
+            }
+
+            &:first-child{
+                top: 20px;
+            }
+
+            &:nth-child(2){
+                top: 70px;
+            }
+
+    
+            &:hover{
+                width: 80px;
             }
         }
     }
