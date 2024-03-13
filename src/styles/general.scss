@@ -9,6 +9,17 @@
 }
 // reset
 
+body{
+  font-family: "Open Sans", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, strong{
+  font-family: "Merriweather", serif;
+}
+
+h2{
+  font-size: 42px;
+}
 .container{
   max-width: 950px;
   margin: 0 auto;
@@ -27,10 +38,10 @@
   width: calc(100% / 4);
 }
 
-h2{
-  font-size: 42px;
-}
-
 .img-fluid{
   width: 100%;
+}
+
+.btn, button{
+  cursor: pointer;
 }

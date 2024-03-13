@@ -68,8 +68,7 @@
 </script>
 
 <template>
-    <div class="row price-chart">
-
+    <div class="row price-chart container">
         <!-- stub column, the stub info is taken from its own array -->
         <div class="col-3 plan stub">
             <div class="plan-head">
@@ -105,7 +104,6 @@
             <!-- cart -->
             <button><i class="fa-solid fa-cart-shopping"></i></button>
         </div>
-
     </div>
 
 </template>
@@ -115,8 +113,9 @@
 
     .price-chart{
         border-top: 5px solid $border-tertiary;
-        padding-bottom: 100px;
+        padding-bottom: 50px;
         position: relative;
+        background-color: white;
     }
     .plan{
         display: flex;
@@ -189,11 +188,13 @@
     }
 
     .side-buttons{
+        // z-index: -1;
+
         button{
             cursor: pointer;
             position: absolute;
-            left: 100%;
-            z-index: 99;
+            left: calc(100% - 2px);
+            z-index: 10;
 
             width: 42px;
             height: 42px;
@@ -201,7 +202,7 @@
             background-color: white;
             border: none;
             box-shadow: 3px 0 10px rgba($color: #000000, $alpha: 0.2);
-            transition: width 0.3s;
+            transition: width 0.3s, height 0.3s;
             
             img{
                 width: 42px;
@@ -215,9 +216,36 @@
                 top: 70px;
             }
 
-    
             &:hover{
                 width: 80px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1024px) {
+        .side-buttons{
+            
+
+            button:first-child{
+                left: calc(90% - 50px);
+                bottom: calc(100% + 4px);
+                top: auto;
+
+                &:hover{
+                    height: 80px;
+                    width: 42px;
+                }
+            }
+
+            button:nth-child(2){
+                left: 90%;
+                bottom: calc(100% + 4px);
+                top: auto;
+
+                &:hover{
+                    height: 80px;
+                    width: 42px;
+                }
             }
         }
     }

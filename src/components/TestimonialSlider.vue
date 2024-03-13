@@ -120,6 +120,10 @@
                 padding-bottom: 0.5rem;
             }
 
+            small{
+                font-weight: bold;
+            }
+
             p{
                 font-size: 1.2rem;
 

@@ -136,10 +136,10 @@
 
             .btn{
                 padding: 1rem 2rem;
-                background-color: $bg-primary;
                 border: none;
-                color: white;
                 text-transform: uppercase;
+                color: white;
+                background-color: $bg-primary;
             }
         
             .head-buttons{

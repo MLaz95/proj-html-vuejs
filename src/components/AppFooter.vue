@@ -66,13 +66,13 @@
             </div>
 
             <div class="ft-bottom row">
-                <div>Copyrights 2017 Mikado Themes</div>
+                <div>Copyrights 2017 &copy;Mikado Themes</div>
                 <div class="row ft-contacts">
                     <div>CALL +44 300 303 0266</div>
                     <div>FOLLOW US</div>
-                    <i class="fa-brands fa-twitter"></i>
-                    <i class="fa-brands fa-instagram"></i>
-                    <i class="fa-brands fa-facebook-f"></i>
+                    <a href="#!"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#!"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#!"><i class="fa-brands fa-facebook-f"></i></a>
                 </div>
             </div>
 
@@ -87,8 +87,9 @@
 
     footer{
         padding: 40px;
-        color: white;
+        color: $text-secondary;
         background-color: $bg-footer;
+        line-height: 1.5rem;
 
         .ft-top{
             border-bottom: 1px solid white; //test
@@ -100,6 +101,7 @@
 
         h3{
             font-size: 1.5rem;
+            color: white;
         }
 
         .img-wrapper{
@@ -110,6 +112,10 @@
             display: flex;
             flex-direction: column;
             gap: 2rem;
+        }
+
+        .fa-phone, .fa-clock{
+            padding-right: 1rem;
         }
 
         ul{
@@ -125,7 +131,7 @@
             
             a{
                 text-decoration: none;
-                color: white;   //test
+                color: $text-secondary;   //test
 
                 &:hover{
                     text-decoration: underline;
@@ -139,6 +145,11 @@
 
             .ft-contacts{
                 gap: 1rem;
+                align-items: center;
+                
+                a{
+                    color: $text-secondary;
+                }
             }
         }
     }

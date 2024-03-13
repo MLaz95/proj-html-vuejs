@@ -9,7 +9,7 @@
                     {
                         name: 'Creative Writing',
                         teacher: 'Kevin Barton',
-                        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit dolor nobis eligendi quas iure aut ipsam facere eius eveniet neque pariatur, ipsum, ducimus repellendus nemo sit tempore unde facilis possimus.',
+                        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit dolor nobis eligendi quas iure aut ipsam facere eius eveniet neque pariatur.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit dolor nobis eligendi quas iure aut ipsam facere eius eveniet neque pariatur.',
                         cost: 'free',
                         field: 'art',
                         slots: '1',
@@ -17,7 +17,7 @@
                     },{
                         name: '20th-century Literature',
                         teacher: 'Vivian McCray',
-                        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit dolor nobis eligendi quas iure aut ipsam facere eius eveniet neque pariatur, ipsum, ducimus repellendus nemo sit tempore unde facilis possimus.',
+                        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit dolor nobis eligendi quas iure aut ipsam facere eius eveniet neque pariatur.',
                         cost: '15$',
                         field: 'art',
                         slots: '3',
@@ -25,7 +25,7 @@
                     },{
                         name: 'Architetctural Design 101',
                         teacher: 'Alison Clark',
-                        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit dolor nobis eligendi quas iure aut ipsam facere eius eveniet neque pariatur, ipsum, ducimus repellendus nemo sit tempore unde facilis possimus.',
+                        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit dolor nobis eligendi quas iure aut ipsam facere eius eveniet neque pariatur.',
                         cost: '$35',
                         field: 'art',
                         slots: '4',
@@ -35,7 +35,7 @@
                     {
                         name: 'Android Developer',
                         teacher: 'David Sanders',
-                        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit dolor nobis eligendi quas iure aut ipsam facere eius eveniet neque pariatur, ipsum, ducimus repellendus nemo sit tempore unde facilis possimus.',
+                        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit dolor nobis eligendi quas iure aut ipsam facere eius eveniet neque pariatur.',
                         cost: 'free',
                         field: 'programming',
                         slots: '1',
@@ -43,7 +43,7 @@
                     },{
                         name: 'Web Designing',
                         teacher: 'Jennifer Powell',
-                        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit dolor nobis eligendi quas iure aut ipsam facere eius eveniet neque pariatur, ipsum, ducimus repellendus nemo sit tempore unde facilis possimus.',
+                        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit dolor nobis eligendi quas iure aut ipsam facere eius eveniet neque pariatur.',
                         cost: 'free',
                         field: 'programming',
                         slots: '1',
@@ -51,7 +51,7 @@
                     },{
                         name: 'Financial Modeling',
                         teacher: 'Edward Bowman',
-                        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit dolor nobis eligendi quas iure aut ipsam facere eius eveniet neque pariatur, ipsum, ducimus repellendus nemo sit tempore unde facilis possimus.',
+                        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit dolor nobis eligendi quas iure aut ipsam facere eius eveniet neque pariatur.',
                         cost: '$20',
                         field: 'business',
                         slots: '1',
@@ -61,7 +61,7 @@
                     {
                         name: 'Social Media Management',
                         teacher: 'David Sanders',
-                        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit dolor nobis eligendi quas iure aut ipsam facere eius eveniet neque pariatur, ipsum, ducimus repellendus nemo sit tempore unde facilis possimus.',
+                        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit dolor nobis eligendi quas iure aut ipsam facere eius eveniet neque pariatur.',
                         cost: '15$',
                         field: 'business',
                         slots: '2',
@@ -69,7 +69,7 @@
                     },{
                         name: 'Photography',
                         teacher: 'Faith Sellers',
-                        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit dolor nobis eligendi quas iure aut ipsam facere eius eveniet neque pariatur, ipsum, ducimus repellendus nemo sit tempore unde facilis possimus.',
+                        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit dolor nobis eligendi quas iure aut ipsam facere eius eveniet neque pariatur.',
                         cost: 'free',
                         field: 'art',
                         slots: '1',
@@ -77,7 +77,7 @@
                     },{
                         name: 'Macroeconomics',
                         teacher: 'Thomas Navarro',
-                        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit dolor nobis eligendi quas iure aut ipsam facere eius eveniet neque pariatur, ipsum, ducimus repellendus nemo sit tempore unde facilis possimus.',
+                        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit dolor nobis eligendi quas iure aut ipsam facere eius eveniet neque pariatur.',
                         cost: '$30',
                         field: 'business',
                         slots: '5',
@@ -110,7 +110,7 @@
                         
                         <p>{{ course.text }}</p>
                         <div class="card-tags">
-                            <div><i class="fa-solid fa-user"></i> 1 </div>
+                            <div><i class="fa-solid fa-user"></i> {{ course.slots }} </div>
                             <div><i class="fa-solid fa-tag"></i> {{ course.field }}</div>
                         </div>
                     </div>
@@ -164,6 +164,7 @@
             .card{
                 border: 2px solid $border-primary;
                 width: calc(100% / 3 - 30px * 2 / 3);
+                max-height: 450px;
                 background-color: white;
 
                 .card-info{
@@ -174,10 +175,15 @@
                     text-align: start;
                     color: $text-secondary;
 
+                    p{
+                        flex-basis: 130px;
+                        overflow-y: auto;
+                    }
+
                     .card-head{
                         display: flex;
                         justify-content: space-between;
-                        align-items: start;
+                        // align-items: start;
                         
                         strong{
                             color: black;
@@ -192,6 +198,9 @@
                             text-align: center;
                             color: white;
                             background-color: $bg-primary;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
 
                             &.free{
                                 background-color: $bg-free;

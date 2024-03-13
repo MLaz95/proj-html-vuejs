@@ -48,12 +48,12 @@
             </div>
         </div>
         
-        <section>
+        <section id="intro">
             <!-- first section -->
-            <div class="section-text">
+            <div class="head">
                 <h2>The Trusted Name<br> for In-Home Tutoring.</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium sed suscipit quo, rerum voluptatem deleniti harum nostrum ducimus voluptatum hic sit ipsa, quisquam veniam repellendus, non culpa odio ratione minus?</p>
-                <a href="!#">Learn More</a>
+                <a href="#!">Learn More</a>
             </div>
     
             <!-- bg img between sections -->
@@ -95,17 +95,15 @@
             <div class="head">
                 <h2>Popular Online Courses</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione alias, quaerat facilis consequuntur animi repellat ducimus omnis atque iusto! Quod eius voluptates adipisci voluptatem nesciunt facilis, quam cupiditate est quia.</p>
-
             </div>
             <CourseCarousel></CourseCarousel>
         </div>
     </section>
 
-    <section id="pricing" class="container">
+    <section id="pricing">
         <div class="head">
             <h2>Pricing Plans</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-
         </div>
         <PricingChart></PricingChart>
     </section>
@@ -124,6 +122,10 @@
     section{
         padding: 50px 0 50px;
 
+        &#intro p{
+            padding-bottom: 1rem;
+        }
+
         .img-wrapper{
             max-width: 1100px;
 
@@ -134,6 +136,20 @@
 
         .head{
             padding-bottom: 100px;
+
+            h2{
+                padding-bottom: 1rem;
+            }
+
+            a{
+                border: none;
+                font-weight: bold;
+                text-transform: uppercase;
+                text-decoration: none;
+                color: $bg-primary;
+                background-color: transparent;
+            }   
+            
         }
     }
 
@@ -157,24 +173,6 @@
         }
     }
 
-    .section-text{
-        display: flex;
-        flex-direction: column;
-
-        p{
-            margin: 1rem 0;
-        }
-
-        a{
-            border: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-decoration: none;
-            color: $bg-primary;
-            background-color: transparent;
-        }
-    }
-
     .text{
         padding: 0 115px 0 60px ;
         p{
@@ -184,6 +182,7 @@
 
     .section-data{
         display: flex;
+        text-wrap: nowrap;
         color: $bg-primary;
         
         div{
@@ -206,6 +205,7 @@
 
     #pricing{
         text-align: center;
+        background-image: url(/img/page-background-img.png);
     }
 
     .client-logos{

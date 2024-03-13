@@ -92,11 +92,12 @@
 
                     &:hover{
                         cursor: pointer;
+                        background-color: $bg-fifth;
                     }
 
                     &.active{
                         color: $bg-primary;
-                        background-color: #FCFCFC;
+                        background-color: $bg-fifth;
 
                         &::before{
                             content: '';
