@@ -55,7 +55,6 @@
         },
 
         mounted(){
-            console.log(this.autoPlayId)
             this.autoPlay()
         }
 
@@ -119,6 +118,7 @@
                 &.active{
                     animation: head-fade-in 1s ease forwards;
                 }
+
                 img{
                     width: 100%;
                     height: 100%;
