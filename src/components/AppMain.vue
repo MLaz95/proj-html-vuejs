@@ -160,6 +160,7 @@
         padding: 60px 0;
 
         .card{
+            cursor: pointer;
             width: 140px;
             padding: 27px 0;
             border: 2px solid $border-primary;
@@ -170,6 +171,12 @@
             gap: 2rem;
 
             background-color: $bg-secondary;
+            transition: background-color 0.3s, border-color 0.3s;
+
+            &:hover{
+                background-color: white;
+                border-color: $bg-primary;
+            }
         }
     }
 

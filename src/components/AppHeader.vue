@@ -27,7 +27,7 @@
                 ],
 
                 activeSlide: 0,
-                autoplayId: '',
+                autoPlayId: null,
             }
         },
 
@@ -41,17 +41,21 @@
             },
 
             autoPlay(){
-                this.autoplayId = setInterval(this.nextSlide, 5000)
-                console.log('autoplay start')
+                if(this.autoPlayId == null){
+                    this.autoPlayId = setInterval(this.nextSlide, 5000)
+                    console.log('autoplay start')
+                }
             },
 
             stopAutoPlay(){
-                clearInterval(this.autoplayId)
+                clearInterval(this.autoPlayId);
+                this.autoPlayId = null;
                 console.log('autoplay stop')
             }
         },
 
         mounted(){
+            console.log(this.autoPlayId)
             this.autoPlay()
         }
 
@@ -62,10 +66,10 @@
 
 <template>
     <header>
-        <NavBar></NavBar>
+        <NavBar @stop="stopAutoPlay()" @start="autoPlay()"></NavBar>
         <div class="head-view">
 
-            <div v-for="(slide,index) in headSlides" class="slide" :class="{active: activeSlide == index}" @mouseover="stopAutoPlay()">
+            <div v-for="(slide,index) in headSlides" class="slide" :class="{active: activeSlide == index}">
                 <img :src="slide.background" alt="">
         
                 <div class="head-text">

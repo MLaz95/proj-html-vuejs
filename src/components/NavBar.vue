@@ -6,9 +6,18 @@
             return {
                 navLinks: [
                     'home','courses','instructors','events','pages','elementes',
-                ]
+                ],
+
+                dropDownIsOpen: false,
             }
-        }
+        },
+
+        methods: {
+            toggleDropDown(){
+                this.dropDownIsOpen = !this.dropDownIsOpen
+            },
+
+        },
     }
 
 </script>
@@ -33,7 +42,11 @@
             <button id="cart-icon">
                 <i class="fa-solid fa-bag-shopping"></i>
             </button>
-            <button><i class="fa-solid fa-bars"></i></button>
+            <button @click="toggleDropDown()"><i class="fa-solid fa-bars"></i></button>
+            <ul class="dropdown-menu" :class="{active: dropDownIsOpen}" >
+                <li class="dropdown-item" @click="$emit('stop')">Stop Autoplay</li>
+                <li class="dropdown-item" @click="$emit('start')">Start Autoplay</li>
+            </ul>
         </div>
 
     </nav>
@@ -90,6 +103,8 @@
             align-items: center;
             gap: 1rem;
 
+            position: relative;
+
             button{
                 font-size: 1rem;
                 border: none;
@@ -119,6 +134,32 @@
                 
                 border-radius: 50%;
                 background-color: $bg-primary;
+            }
+        }
+
+        .dropdown-menu{
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0;
+            background-color: $bg-fourth;
+            position: absolute;
+            top: 100%;
+            right: 0;
+
+            &:not(.active){
+                display: none;
+            }
+
+            .dropdown-item{
+                cursor: pointer;
+                text-align: right;
+                text-wrap: nowrap;
+                color: black;
+                border-bottom: 1px solid $border-secondary;
+
+                &:hover{
+                    background-color: rgba($color: #000000, $alpha: 0.2)
+                }
             }
         }
     }
