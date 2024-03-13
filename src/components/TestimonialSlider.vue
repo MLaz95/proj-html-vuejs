@@ -32,25 +32,28 @@
 </script>
 
 <template>
-    <div id="testimonial-slider">
+    <div id="testimonial-bg">
         <!-- content of the testimonial populated from data -->
-        <TransitionGroup>
-            <div
-                key="slide"
-                v-for="(obj, index) in testimonials"
-                v-show="activeSlide == index"
-                class="testimonial"
-            >
-                <div class="img-wrapper">
-                    <img :src="obj.imgPath" alt=""> 
-                </div>
-                <p>"{{ obj.quote }}"</p>
-                <div>
-                    <h3>{{ obj.name }}</h3>
-                    <div><small>{{ obj.occupation.toUpperCase() }}</small></div>
-                </div>
+        
+        <div
+            v-for="(obj, index) in testimonials"
+            class="testimonial"
+            :class="{active: activeSlide == index}"
+        >
+            <div class="img-wrapper">
+                <img :src="obj.imgPath" alt=""> 
             </div>
-        </TransitionGroup>
+            
+            <p>"{{ obj.quote }}"</p>
+            <div>
+                <h3>{{ obj.name }}</h3>
+                <div><small>{{ obj.occupation.toUpperCase() }}</small></div>
+            </div>
+            
+        </div>
+
+        
+        
 
         <!-- buttons to go throuh the slides -->
         <div class="slide-buttons">
@@ -65,12 +68,14 @@
 
 <style lang="scss">
 
-    #testimonial-slider{
+    #testimonial-bg{
         // background img
         height: 645px;
         position: relative;
         background-image: url('/img/h5-parallax-img-1.png');
         background-position: top;
+        overflow-x: hidden;
+
         
         .jumbo-img {
             height: 100%;
@@ -85,15 +90,26 @@
             left: 50%;
             transform: translateX(-50%);
 
+            width: 65%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 3rem;
-
+            gap: 1rem;
+            
             line-height: 1.5rem;
             text-align: center;
             color: white;
+            
+
+
+            &.active{
+                animation: fade-in 1s ease forwards;
+            }
+
+            &:not(.active){
+                animation: fade-out 1s ease forwards;
+            }
 
             .img-wrapper{
                 width: 105px;
@@ -106,6 +122,7 @@
 
             p{
                 font-size: 1.2rem;
+
             }
         }
 
@@ -134,7 +151,31 @@
                 }
             }
         }
-        
+    }
+
+    @keyframes fade-in {
+        from{
+            left: 100%
+        }
+
+        to{
+            left: 50%;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    @keyframes fade-out {
+        from{
+            left: 50%;
+            opacity: 1;
+            visibility: visible;
+        }
+        to{
+            left: 0;
+            opacity: 0;
+            visibility: hidden;
+        }
     }
 
 </style>

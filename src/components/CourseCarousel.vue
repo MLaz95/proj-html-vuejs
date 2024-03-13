@@ -95,38 +95,36 @@
 <template>
     <div id="course-carousel">
         <!-- this carousel three slides, each slides contains three course-cards -->
-        <div class="slide">
-            <!-- only looks at the active slide -->
-            <div class="card" v-for="course in courses[activeSlide]">
-                <img :src="course.imgPath" alt="" class="img-fluid">
-                <div class="card-info">
-                    <div class="card-head">
-                        <div>
-                            <div><strong>{{ course.name }}</strong></div>
-                            <div><small>{{ course.teacher }}</small></div>
+        <div class="slide-view">
+            <div class="slide" v-for="(slide, index) in courses" :class="{active: activeSlide == index}">
+                <div class="card" v-for="course in slide">
+                    <img :src="course.imgPath" alt="" class="img-fluid">
+                    <div class="card-info">
+                        <div class="card-head">
+                            <div>
+                                <div><strong>{{ course.name }}</strong></div>
+                                <div><small>{{ course.teacher }}</small></div>
+                            </div>
+                            <div class="cost" :class="{free: course.cost == 'free'}"><small>{{ course.cost }}</small></div>
                         </div>
-                        <div class="cost" :class="{free: course.cost == 'free'}"><small>{{ course.cost }}</small></div>
-                    </div>
-                    
-                    <p>{{ course.text }}</p>
-                    <div class="card-tags">
-                        <div><i class="fa-solid fa-user"></i> 1 </div>
-                        <div><i class="fa-solid fa-tag"></i> {{ course.field }}</div>
+                        
+                        <p>{{ course.text }}</p>
+                        <div class="card-tags">
+                            <div><i class="fa-solid fa-user"></i> 1 </div>
+                            <div><i class="fa-solid fa-tag"></i> {{ course.field }}</div>
+                        </div>
                     </div>
                 </div>
-
-
-            </div>
-
-            <div class="slide-buttons">
-                <button class="slide-btn"
-                    v-for="(slideArray, index) in courses"
-                    :class="{active: activeSlide == index}"
-                    @click="activeSlide = index">
-                </button>
             </div>
         </div>
-
+        
+        <div class="slide-buttons">
+            <button class="slide-btn"
+                v-for="(slideArray, index) in courses"
+                :class="{active: activeSlide == index}"
+                @click="activeSlide = index">
+            </button>
+        </div>
     </div>
 </template>
 
@@ -136,10 +134,32 @@
     #course-carousel{
         padding-bottom: 100px;
         position: relative;
-
-        .slide{
+        
+        .slide-view{
+            height: 450px;
+            position: relative;
             display: flex;
             gap: 30px;
+            overflow-x: hidden;
+
+        }
+        .slide{
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            min-width: 100%;
+            // flex-wrap: nowrap;
+            gap: 30px;
+
+            &.active{
+                animation: course-fade-in 1s ease forwards;
+            }
+
+            &:not(.active){
+                animation: course-fade-out 1s ease forwards;
+            }
 
             .card{
                 border: 2px solid $border-primary;
@@ -189,31 +209,60 @@
                 }
             }
 
-            .slide-buttons{
-                position: absolute;
-                left: 50%;
-                bottom: 0;
-                transform: translateX(-50%);
+        }
+        .slide-buttons{
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
     
-                display: flex;
-                gap: 1rem;
-                padding: 2rem;
+            display: flex;
+            gap: 1rem;
+            padding: 2rem;
     
-                button{
-                    width: 12px;
-                    height: 12px;
+            button{
+                width: 12px;
+                height: 12px;
     
-                    border: none;
-                    border-radius: 50%;
+                border: none;
+                border-radius: 50%;
     
-                    background-color: $bg-tertiary;
+                background-color: $bg-tertiary;
     
-                    &.active{
-                        background-color: $bg-primary;
-                    }
+                &.active{
+                    background-color: $bg-primary;
                 }
             }
         }
 
+    }
+
+    @keyframes course-fade-in {
+        from{
+            left: 100%;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        to{
+            left: 0;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    @keyframes course-fade-out {
+        from{
+            left: 0;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        to{
+            left: -100%;
+            opacity: 0;
+            visibility: hidden;
+            // position: absolute;
+        }
     }
 </style>
